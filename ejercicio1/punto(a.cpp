@@ -17,6 +17,7 @@ void crearMatriz(int n){
         }
         cout << endl;
     }
+    return 1;
 }
 
 int main(){
