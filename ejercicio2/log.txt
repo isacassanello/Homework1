@@ -1,0 +1,15 @@
+[INFO] <Inicializando sistema...>
+[DEBUG] <Conectando a la base de datos...>
+[WARNING] <Advertencia: Uso de memoria alto>
+[ERROR] <Error en módulo de autenticación> 
+  ->Archivo: auth.cpp
+  ->Linea: 45
+[ERROR] <Acceso permitido> 
+  ->Archivo: usuario123
+  ->Linea: 5
+[ERROR] <Acceso denegado> 
+  ->Archivo: usuario456
+  ->Linea: 5
+[ERROR] <Se ha producido un error inesperado> 
+  ->Archivo: main.cpp
+  ->Linea: 59
