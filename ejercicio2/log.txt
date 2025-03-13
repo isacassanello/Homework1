@@ -1,19 +1,4 @@
-[DEBUG] <hola como estas>
-[ERROR] <prueba error> 
-  ->Archivo: ejerciio1
-  ->Linea: 78
-[INFO] <prueba info>
-[ERROR] <prueba de error> 
-  ->Archivo: ejercicio1
-  ->Linea: 78
-[ERROR] <prueb error> 
-  ->Archivo: ejer1
-  ->Linea: 65
-[DEBUG] <hola spy isa>
-[SECURITY] Usuario: isacassanello - prueba security
-[WARNING] <jajajaja>
-[SECURITY] Usuario: isacassanello
-   hola hola hola
-[SECURITY]
-  ->Usuario: isacassanello
-  ->Mensaje de acceso: hola
+[ERROR]
+  ->Mensaje de error: Se ha producido un error en el sistema> 
+  ->Archivo: main.cpp
+  ->Linea: 60

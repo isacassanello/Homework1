@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <stdexcept>
 using namespace std;
 
 enum nivelSeguridad {DEBUG = 1, INFO, WARNING, ERROR, CRITICAL, SECURITY};
@@ -52,20 +53,34 @@ void logMensaje(string msj_de_acceso, string usuario){
     archivo_log.close();
 }
 
+void generarError() {
+    try {
+        throw runtime_error("Se ha producido un error en el sistema");
+    } catch (const exception &e) {
+        logMensaje(e.what(), __FILE__, __LINE__);  // Guardar en log con archivo y línea
+        cerr << "Error crítico detectado. Revise el log." << endl;
+        exit(1);  // Detener la ejecución con código de error
+    }
+}
+
 // Funcion para que el usuario ingrese por la terminal el nivel de seguridad y sus derivados
 void ingresarMensajes(){
-    int opcion; 
+    int opcion, linea, agregar_detalles; 
     string msj, archivo, usuario;
-    int linea;
 
     while (true){
-        cout << "Seleccione un nivel de seguridad (el numero):\n    1) DEBUG\n    2) INFO\n    3) WARNING\n    4) ERROR\n    5) CRITICAL\n    6) SECURITY\n    7) Salir\n";
+        cout << "Seleccione un nivel de seguridad (el numero):\n    1) DEBUG\n    2) INFO\n    3) WARNING\n    4) ERROR\n    5) CRITICAL\n    6) SECURITY\n    7) Simular error\n    8) Salir\n";
         cout << "Opcion: ";
         cin >> opcion;
         cin.ignore();
 
-        if (opcion == 7){
+
+        if (opcion == 8){
             cout << "Saliendo del programa." << endl; break;
+        }
+
+        if (opcion == 7){
+            generarError();
         }
 
         if (opcion < 1 || opcion > 6){
@@ -74,18 +89,30 @@ void ingresarMensajes(){
         }
 
         if (opcion == 4){
-            cout << "Indique el mensaje de error: ";
-            getline(cin, msj);
-
-            cout << "Indique en qué archivo donde se encuentra el error: ";
-            getline(cin, archivo);
-
-            cout << "Indique la linea donde se encuentra el error dentro del archivo: ";
-            cin >> linea;
+            cout << "¿Desea ingresar detalles del archivo y línea? (si = 0 | no = 1): ";
+            cin >> agregar_detalles;
             cin.ignore();
 
-            logMensaje(msj, archivo, linea);
-        
+            if (agregar_detalles == 0){
+                cout << "Indique el mensaje de error: ";
+                getline(cin, msj);
+
+                cout << "Indique en qué archivo donde se encuentra el error: ";
+                getline(cin, archivo);
+
+                cout << "Indique la linea donde se encuentra el error dentro del archivo: ";
+                cin >> linea;
+                cin.ignore();
+
+                logMensaje(msj, archivo, linea);
+
+            } else {
+                cout << "Indique el mensaje de error: ";
+                getline(cin, msj);
+
+                logMensaje(msj, static_cast<nivelSeguridad>(opcion));
+            }
+
         } else if (opcion == 6){
             cout << "Ingrese su nombre de usuario: ";
             getline(cin, usuario);
@@ -107,5 +134,8 @@ void ingresarMensajes(){
 int main() {
     ingresarMensajes();
     cout << "Mensajes de log registrados en 'log.txt'" << endl;
+
+    // forzar un error con try - runtime error
+
     return 0;
 }
