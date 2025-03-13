@@ -5,7 +5,7 @@ using namespace std;
 enum nivelSeguridad {DEBUG = 1, INFO, WARNING, ERROR, CRITICAL, SECURITY};
 
 // Punto a
-void logMessage(string msg, nivelSeguridad nivel){
+void logMensaje(string msj, nivelSeguridad nivel){
     ofstream archivo_log("log.txt", ios::app);
 
     if (!archivo_log){
@@ -22,13 +22,13 @@ void logMessage(string msg, nivelSeguridad nivel){
         case nivelSeguridad::CRITICAL: etiqueta = "[CRITICAL]"; break;
     }
 
-    archivo_log << etiqueta << " <" << msg << ">" << endl;
+    archivo_log << etiqueta << " <" << msj << ">" << endl;
 
     archivo_log.close();
 }
 
 // Punto b
-void logMessage(string msg_de_error, string archivo, int linea) {
+void logMensaje(string msj_de_error, string archivo, int linea) {
     ofstream archivo_log("log.txt", ios::app);
 
     if (!archivo_log){
@@ -36,11 +36,11 @@ void logMessage(string msg_de_error, string archivo, int linea) {
         return;
     }
 
-    archivo_log << "[ERROR]\n  ->Mensaje de error: " << msg_de_error << "> \n  ->Archivo: " << archivo << "\n  ->Linea: " << linea << endl;
+    archivo_log << "[ERROR]\n  ->Mensaje de error: " << msj_de_error << "> \n  ->Archivo: " << archivo << "\n  ->Linea: " << linea << endl;
     archivo_log.close();
 }
 
-void logMessage(string msg_de_acceso, string usuario){
+void logMensaje(string msj_de_acceso, string usuario){
     ofstream archivo_log("log.txt", ios::app);
 
     if (!archivo_log){
@@ -48,14 +48,14 @@ void logMessage(string msg_de_acceso, string usuario){
         return;
     }
 
-    archivo_log << "[SECURITY]\n  ->Usuario: " << usuario << "\n  ->Mensaje de acceso: " << msg_de_acceso << endl;
+    archivo_log << "[SECURITY]\n  ->Usuario: " << usuario << "\n  ->Mensaje de acceso: " << msj_de_acceso << endl;
     archivo_log.close();
 }
 
 // Funcion para que el usuario ingrese por la terminal el nivel de seguridad y sus derivados
 void ingresarMensajes(){
     int opcion; 
-    string msg, archivo, usuario;
+    string msj, archivo, usuario;
     int linea;
 
     while (true){
@@ -75,7 +75,7 @@ void ingresarMensajes(){
 
         if (opcion == 4){
             cout << "Indique el mensaje de error: ";
-            getline(cin, msg);
+            getline(cin, msj);
 
             cout << "Indique en qué archivo donde se encuentra el error: ";
             getline(cin, archivo);
@@ -84,27 +84,25 @@ void ingresarMensajes(){
             cin >> linea;
             cin.ignore();
 
-            logMessage(msg, archivo, linea);
+            logMensaje(msj, archivo, linea);
         
         } else if (opcion == 6){
             cout << "Ingrese su nombre de usuario: ";
             getline(cin, usuario);
 
             cout << "Ingrese el mensaje de acceso: ";
-            getline(cin, msg);
+            getline(cin, msj);
 
-            logMessage(msg, usuario);
+            logMensaje(msj, usuario);
         
         } else {
             cout << "Ingrese el mensaje: ";
-            getline(cin, msg);
+            getline(cin, msj);
 
-            logMessage(msg, static_cast<nivelSeguridad>(opcion));
+            logMensaje(msj, static_cast<nivelSeguridad>(opcion));
         }
     }
 }
-
-
 
 int main() {
     ingresarMensajes();

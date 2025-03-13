@@ -7,5 +7,9 @@
 			"path": "../../../tutoriales/archivos"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp"
+		}
+	}
 }
