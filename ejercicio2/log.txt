@@ -1,15 +1,14 @@
-[INFO] <Inicializando sistema...>
-[DEBUG] <Conectando a la base de datos...>
-[WARNING] <Advertencia: Uso de memoria alto>
-[ERROR] <Error en módulo de autenticación> 
-  ->Archivo: auth.cpp
-  ->Linea: 45
-[ERROR] <Acceso permitido> 
-  ->Archivo: usuario123
-  ->Linea: 5
-[ERROR] <Acceso denegado> 
-  ->Archivo: usuario456
-  ->Linea: 5
-[ERROR] <Se ha producido un error inesperado> 
-  ->Archivo: main.cpp
-  ->Linea: 59
+[DEBUG] <hola como estas>
+[ERROR] <prueba error> 
+  ->Archivo: ejerciio1
+  ->Linea: 78
+[INFO] <prueba info>
+[ERROR] <prueba de error> 
+  ->Archivo: ejercicio1
+  ->Linea: 78
+[ERROR] <prueb error> 
+  ->Archivo: ejer1
+  ->Linea: 65
+[DEBUG] <hola spy isa>
+[SECURITY] Usuario: isacassanello - prueba security
+[WARNING] <jajajaja>
