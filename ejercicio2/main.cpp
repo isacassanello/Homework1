@@ -4,12 +4,12 @@ using namespace std;
 
 enum nivelSeguridad {DEBUG = 1, INFO, WARNING, ERROR, CRITICAL, SECURITY};
 
-// punto a
+// Punto a
 void logMessage(string msg, nivelSeguridad nivel){
     ofstream archivo_log("log.txt", ios::app);
 
     if (!archivo_log){
-        cerr << "error al abrir los archivos" << endl;
+        cerr << "Error al abrir los archivos" << endl;
         return;
     }
 
@@ -27,16 +27,16 @@ void logMessage(string msg, nivelSeguridad nivel){
     archivo_log.close();
 }
 
-// punto b
+// Punto b
 void logMessage(string msg_de_error, string archivo, int linea) {
     ofstream archivo_log("log.txt", ios::app);
 
     if (!archivo_log){
-        cerr << "error al abrir los archivos" << endl;
+        cerr << "Error al abrir los archivos" << endl;
         return;
     }
 
-    archivo_log << "[ERROR] <" << msg_de_error << "> \n  ->Archivo: " << archivo << "\n  ->Linea: " << linea << endl;
+    archivo_log << "[ERROR]\n  ->Mensaje de error: " << msg_de_error << "> \n  ->Archivo: " << archivo << "\n  ->Linea: " << linea << endl;
     archivo_log.close();
 }
 
@@ -44,14 +44,15 @@ void logMessage(string msg_de_acceso, string usuario){
     ofstream archivo_log("log.txt", ios::app);
 
     if (!archivo_log){
-        cerr << "error al abrir los archivos" << endl;
+        cerr << "Error al abrir los archivos" << endl;
         return;
     }
 
-    archivo_log << "[SECURITY] Usuario: " << usuario << " - " << msg_de_acceso << endl;
+    archivo_log << "[SECURITY]\n  ->Usuario: " << usuario << "\n  ->Mensaje de acceso: " << msg_de_acceso << endl;
     archivo_log.close();
 }
 
+// Funcion para que el usuario ingrese por la terminal el nivel de seguridad y sus derivados
 void ingresarMensajes(){
     int opcion; 
     string msg, archivo, usuario;

@@ -12,3 +12,8 @@
 [DEBUG] <hola spy isa>
 [SECURITY] Usuario: isacassanello - prueba security
 [WARNING] <jajajaja>
+[SECURITY] Usuario: isacassanello
+   hola hola hola
+[SECURITY]
+  ->Usuario: isacassanello
+  ->Mensaje de acceso: hola
