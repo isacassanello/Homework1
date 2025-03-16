@@ -1,4 +1,0 @@
-[ERROR]
-  ->Mensaje de error: Se ha producido un error en el sistema> 
-  ->Archivo: main.cpp
-  ->Linea: 60

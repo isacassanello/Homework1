@@ -57,13 +57,12 @@ void generarError() {
     try {
         throw runtime_error("Se ha producido un error en el sistema");
     } catch (const exception &e) {
-        logMensaje(e.what(), __FILE__, __LINE__);  // Guardar en log con archivo y línea
+        logMensaje(e.what(), __FILE__, __LINE__); 
         cerr << "Error crítico detectado. Revise el log." << endl;
-        exit(1);  // Detener la ejecución con código de error
+        exit(1); 
     }
 }
 
-// Funcion para que el usuario ingrese por la terminal el nivel de seguridad y sus derivados
 void ingresarMensajes(){
     int opcion, linea, agregar_detalles; 
     string msj, archivo, usuario;
@@ -134,8 +133,6 @@ void ingresarMensajes(){
 int main() {
     ingresarMensajes();
     cout << "Mensajes de log registrados en 'log.txt'" << endl;
-
-    // forzar un error con try - runtime error
 
     return 0;
 }
