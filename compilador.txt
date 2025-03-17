@@ -3,3 +3,6 @@ cd "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercici
 
 COMPILADOR EJERCICIO 3
 cd "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/" && g++ -std=c++11 main.cpp -o main && "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/"main
+
+COMPILADOR EJERCICIO 4
+cd "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/" && g++ -std=c++11 main.cpp -o main && "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio4/"main
