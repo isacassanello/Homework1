@@ -28,10 +28,10 @@ int main(){
 
 
     // medir el tiempo de comparación entre text1 y text3
-    auto startTime = chrono::high_resolution_clock::now();
+    startTime = chrono::high_resolution_clock::now();
     bool resultado2 = comparar_strings(text1, text3);
-    auto endTime = chrono::high_resolution_clock::now();
-    auto elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
+    endTime = chrono::high_resolution_clock::now();
+    elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
 
     cout << "Comparando text1 y text3: " << (resultado2 ? "Iguales " : "Diferentes ") << endl;
     cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n"; // no corre esta linea
