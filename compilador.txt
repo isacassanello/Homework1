@@ -1,11 +1,4 @@
-COMPILADOR EJERCICIO 2
-cd "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/" && g++ -std=c++11 main.cpp -o main && "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio2/"main
-
-COMPILADOR EJERCICIO 3
-cd "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/" && g++ -std=c++11 main.cpp -o main && "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/"main
-
-COMPILADOR EJERCICIO 4
-cd "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio3/" && g++ -std=c++11 main.cpp -o main && "/Users/isacassanello/Desktop/segundo/paradigmas/homeworks/Homework1/ejercicio4/"main
+COMPILADOR EN TODOS LOS EJERCICIOS
 
 Paso 1 -> cd ejercicioX
 Paso 2 -> g++ -std=c++11 main.cpp -o main
