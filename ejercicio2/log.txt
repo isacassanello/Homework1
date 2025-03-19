@@ -1,0 +1,4 @@
+[ERROR]
+  ->Mensaje de error: hh> 
+  ->Archivo: hyol.cpp
+  ->Linea: 90

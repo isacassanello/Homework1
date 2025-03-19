@@ -21,6 +21,7 @@ void logMensaje(string msj, nivelSeguridad nivel){
         case nivelSeguridad::WARNING: etiqueta = "[WARNING]"; break;
         case nivelSeguridad::ERROR: etiqueta = "[ERROR]"; break;
         case nivelSeguridad::CRITICAL: etiqueta = "[CRITICAL]"; break;
+        case nivelSeguridad::SECURITY: break; // Pongo esto solo para que no me salte un warning en la compilacion
     }
 
     archivo_log << etiqueta << " <" << msj << ">" << endl;
