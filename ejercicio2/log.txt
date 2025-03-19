@@ -2,3 +2,12 @@
   ->Mensaje de error: hh> 
   ->Archivo: hyol.cpp
   ->Linea: 90
+[ERROR]
+  ->Mensaje de error: Se ha producido un error en el sistema> 
+  ->Archivo: main.cpp
+  ->Linea: 61
+[ERROR] <111>
+[ERROR]
+  ->Mensaje de error: Se ha producido un error en el sistema> 
+  ->Archivo: main.cpp
+  ->Linea: 61

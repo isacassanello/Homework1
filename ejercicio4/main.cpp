@@ -37,7 +37,7 @@ int main(){
     auto elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
     
     cout << "Comparando text1 y text2: " << (resultado1 ? "Iguales" : "Diferentes") << endl;
-    cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n\n"; // no corre esta linea
+    cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n\n"; 
 
     // punto b - medir el tiempo de comparación entre text1 y text3
     startTime = chrono::high_resolution_clock::now();
@@ -46,7 +46,7 @@ int main(){
     elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
 
     cout << "Comparando text1 y text3: " << (resultado2 ? "Iguales " : "Diferentes ") << endl;
-    cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n"; // no corre esta linea
+    cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n"; 
 
     cout << "\n================= COMPARACION EN TIEMPO DE COMPILACION =================\n";
 

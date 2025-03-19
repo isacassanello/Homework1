@@ -95,7 +95,7 @@ void print_list(shared_ptr<node>& head){
         temp = temp->next;
     }
     cout << "NULL \n";
-    cout << "------------------------------------------";
+    cout << "------------------------------------------\n";
 }
 
 int main(){
