@@ -55,23 +55,20 @@ int main(){
     constexpr const char text2_constexpr[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion, ojala que este bien";
     constexpr const char text3_constexpr[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion";
 
-    constexpr bool resultado_constexpr1 = comparar_constexpr(text1_constexpr, text1_constexpr);
-    constexpr bool resultado_constexpr2 = comparar_constexpr(text1_constexpr, text3_constexpr);
-
     startTime = chrono::high_resolution_clock::now();
-    bool resultado_constexpr_runtime1 = resultado_constexpr1;
+    constexpr bool resultado_constexpr1 = comparar_constexpr(text1_constexpr, text2_constexpr);
     endTime = chrono::high_resolution_clock::now();
     elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
 
-    cout << "Comparacion en tiempo de compilacion (text1 vs text1): " << (resultado_constexpr_runtime1 ? "Iguales" : "Diferentes") << endl;
+    cout << "Comparacion en tiempo de compilacion (text1 vs text2): " << (resultado_constexpr1 ? "Iguales" : "Diferentes") << endl;
     cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n\n";
 
     startTime = chrono::high_resolution_clock::now();
-    bool resultado_constexpr_runtime2 = resultado_constexpr2;
+    constexpr bool resultado_constexpr2 = comparar_constexpr(text1_constexpr, text3_constexpr);
     endTime = chrono::high_resolution_clock::now();
     elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
 
-    cout << "Comparacion en tiempo de compilacion (text1 vs text3): " << (resultado_constexpr_runtime2 ? "Iguales" : "Diferentes") << endl;
+    cout << "Comparacion en tiempo de compilacion (text1 vs text3): " << (resultado_constexpr2 ? "Iguales" : "Diferentes") << endl;
     cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n";
 
     cout << "===========================================================================\n";

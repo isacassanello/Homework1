@@ -11,3 +11,8 @@
   ->Mensaje de error: Se ha producido un error en el sistema> 
   ->Archivo: main.cpp
   ->Linea: 61
+[ERROR]
+  ->Mensaje de error: hh> 
+  ->Archivo: l.cpp
+  ->Linea: 50
+[ERROR] <jola>

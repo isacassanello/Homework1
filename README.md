@@ -19,4 +19,5 @@ Paso 3 -> ./main
 COMPILADOR EN EL EJERCICIO 4
 
 Paso 1 -> cd ejercicio4
-Paso 2 -> ./main
+Paso 2 -> g++ -std=c++17 -o main main.cpp
+Paso 3 -> ./main
