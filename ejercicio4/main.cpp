@@ -15,18 +15,18 @@ bool comparar_strings(const char* str1, const char* str2){
 // Punto c - Comparacion en tiempo de compilacion con constexpr
 // Usa constexpr para realizar la comparacion en tiempo de compilacion
 constexpr bool comparar_constexpr(const char* str1, const char* str2){
-    return (str1 == str2) ? (*str1 == '\0' || comparar_constexpr(str1 + 1, str2 + 1)) : false;
-    // (str1 == str2) compara el primer caracter de str1 con el primer caracter de str2
-    // si son distintos, la función devuelve false (esto se maneja en la parte del : false)
-    // si son iguales, entonces se pasa a la siguiente parte de la expresión condicional
-    // si se llego al final de la cadena (el caracter nulo \0), significa que ambas cadenas eran iguales hasta el final, por lo que devuelve true
-    // si no hemos llegado al final (\0), se llama recursivamente a la misma función para comparar los siguientes caracteres (str1 + 1 y str2 + 1)
+   // si ambos punteros apuntan al final 
+   if (*str1 == '\0' && *str2 == '\0') return true;
+    
+   if (*str1 != *str2) return false;
+
+   return comparar_constexpr(str1 + 1, str2 + 1);
 }
 
 int main(){
-    const char* text1 = "La programacion en C++ es poderosa y permite optimizaciones increibles";
-    const char* text2 = "La programacion en C++ es poderosa y permite optimizaciones increibles";
-    const char* text3 = "La programacion en C++ es flexible y permite optimizaciones increibles";
+    const char text1[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion, ojala que este bien";
+    const char text2[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion, ojala que este bien";
+    const char text3[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion";
 
     cout << "==================== COMPARACION EN TIEMPO DE EJECUCION ====================\n";
 
@@ -51,11 +51,11 @@ int main(){
     cout << "\n================= COMPARACION EN TIEMPO DE COMPILACION =================\n";
 
     // punto c - comparacion en tiempo de compilacion con constexpr
-    constexpr const char* text1_constexpr = "La programacion en C++ es poderosa y permite optimizaciones increibles";
-    constexpr const char* text2_constexpr = "La programacion en C++ es poderosa y permite optimizaciones increibles";
-    constexpr const char* text3_constexpr = "La programacion en C++ es flexible y permite optimizaciones increibles";
+    constexpr const char text1_constexpr[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion, ojala que este bien";
+    constexpr const char text2_constexpr[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion, ojala que este bien";
+    constexpr const char text3_constexpr[] = "Estoy probando el cuarto punto del Homework de la materia Paradigmas de la Programacion";
 
-    constexpr bool resultado_constexpr1 = comparar_constexpr(text1_constexpr, text2_constexpr);
+    constexpr bool resultado_constexpr1 = comparar_constexpr(text1_constexpr, text1_constexpr);
     constexpr bool resultado_constexpr2 = comparar_constexpr(text1_constexpr, text3_constexpr);
 
     startTime = chrono::high_resolution_clock::now();
@@ -63,7 +63,7 @@ int main(){
     endTime = chrono::high_resolution_clock::now();
     elapsedTime = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
 
-    cout << "Comparacion en tiempo de compilacion (text1 vs text2): " << (resultado_constexpr_runtime1 ? "Iguales" : "Diferentes") << endl;
+    cout << "Comparacion en tiempo de compilacion (text1 vs text1): " << (resultado_constexpr_runtime1 ? "Iguales" : "Diferentes") << endl;
     cout << "Tiempo de ejecucion: " << elapsedTime.count() << " nanosegundos\n\n";
 
     startTime = chrono::high_resolution_clock::now();
@@ -79,12 +79,6 @@ int main(){
     return 0;
 }
 
-/*
-CONCLUSION
-    - la version en tiempo de ejecucion (punto b) mide el tiempo real de comparacion de los strings y depende de la longitud del texto
-    - la version en tiempo de compilacion (punto c) preevalua el resultado en la fase de compilación, eliminando el costo en tiempo de ejecucion
-    - la diferencia clave es que el compilador ya conoce el resultado en la versión `constexpr`, por lo que su tiempo de ejecucion es casi nulo
-*/
 
 /*
 Elijo char* ya que string no es un tipo constxpr, lo que uso en el ejercicio c para analizar el tiempo de compilacion

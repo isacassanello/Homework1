@@ -1,6 +1,6 @@
 # Homework1
 
-COMPILADOR EN LOS EJERCICIOS 1
+COMPILADOR EN EL EJERCICIO 1
 
 Paso 1 -> cd ejercicio1
 Paso 2 -> g++ main.cpp -o main
@@ -16,7 +16,7 @@ Paso 3 -> ./main
 
 ------------------------------------------------
 
-COMPILADOR EN LOS EJERCICIOS 4
+COMPILADOR EN EL EJERCICIO 4
 
 Paso 1 -> cd ejercicio4
 Paso 2 -> ./main
