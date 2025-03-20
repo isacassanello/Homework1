@@ -129,5 +129,5 @@ int main(){
     erase(head, 100);
     print_list(head); // esperado: 5 -> 15 -> 10 -> 20 -> 40 -> NULL
 
-    return 1;
+    return 0;
 }

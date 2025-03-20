@@ -68,7 +68,7 @@ int main() {
     string msj, archivo, usuario;
 
     while (true){
-        cout << "Seleccione un nivel de seguridad (el numero):\n    1) DEBUG\n    2) INFO\n    3) WARNING\n    4) ERROR\n    5) CRITICAL\n    6) TEST\n    7) SECURITY\n    8) Simular error\n    9) Salir\n";
+        cout << "Seleccione un nivel de seguridad (el numero):\n    1) DEBUG\n    2) INFO\n    3) WARNING\n    4) ERROR\n    5) CRITICAL\n    6) TEST\n    7) SECURITY\n    8) Forzar un error\n    9) Salir\n";
         cout << "Opcion: ";
         cin >> opcion;
         cin.ignore();
