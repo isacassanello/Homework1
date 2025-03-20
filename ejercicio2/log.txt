@@ -1,9 +1,0 @@
-[ERROR]
-  ->Mensaje de error: Se ha producido un error en el sistema> 
-  ->Archivo: main.cpp
-  ->Linea: 157
-[ERROR] <2>
-[ERROR]
-  ->Mensaje de error: Se ha producido un error en el sistema> 
-  ->Archivo: main.cpp
-  ->Linea: 91
