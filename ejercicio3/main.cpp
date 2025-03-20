@@ -89,13 +89,20 @@ void erase(shared_ptr<node>& head, int position){
 // vi. print_list():
 void print_list(shared_ptr<node>& head){
     auto temp = head;
-    cout << "------------------------------------------\n";
-    while (temp != NULL){
-        cout << temp->value << " -> ";
-        temp = temp->next;
+    cout << "\n======= Lista Enlazada =======\n";
+    
+    if (!temp) {
+        cout << "[Lista vacía]\n";
+    } else {
+        cout << "Inicio -> ";
+        while (temp != nullptr) {
+            cout << "[" << temp->value << "] -> ";
+            temp = temp->next;
+        }
+        cout << "NULL";
     }
-    cout << "NULL \n";
-    cout << "------------------------------------------\n";
+
+    cout << "\n=============================\n";
 }
 
 int main(){
@@ -122,5 +129,5 @@ int main(){
     erase(head, 100);
     print_list(head); // esperado: 5 -> 15 -> 10 -> 20 -> 40 -> NULL
 
-    return 0;
+    return 1;
 }

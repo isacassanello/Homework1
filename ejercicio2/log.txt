@@ -1,18 +1,9 @@
 [ERROR]
-  ->Mensaje de error: hh> 
-  ->Archivo: hyol.cpp
-  ->Linea: 90
+  ->Mensaje de error: Se ha producido un error en el sistema> 
+  ->Archivo: main.cpp
+  ->Linea: 157
+[ERROR] <2>
 [ERROR]
   ->Mensaje de error: Se ha producido un error en el sistema> 
   ->Archivo: main.cpp
-  ->Linea: 61
-[ERROR] <111>
-[ERROR]
-  ->Mensaje de error: Se ha producido un error en el sistema> 
-  ->Archivo: main.cpp
-  ->Linea: 61
-[ERROR]
-  ->Mensaje de error: hh> 
-  ->Archivo: l.cpp
-  ->Linea: 50
-[ERROR] <jola>
+  ->Linea: 91

@@ -3,7 +3,7 @@
 #include <stdexcept>
 using namespace std;
 
-enum nivelSeguridad {DEBUG = 1, INFO, WARNING, ERROR, CRITICAL, SECURITY};
+enum nivelSeguridad {DEBUG = 1, INFO, WARNING, ERROR, CRITICAL, TEST, SECURITY};
 
 // Punto a
 void logMensaje(string msj, nivelSeguridad nivel){
@@ -21,7 +21,8 @@ void logMensaje(string msj, nivelSeguridad nivel){
         case nivelSeguridad::WARNING: etiqueta = "[WARNING]"; break;
         case nivelSeguridad::ERROR: etiqueta = "[ERROR]"; break;
         case nivelSeguridad::CRITICAL: etiqueta = "[CRITICAL]"; break;
-        case nivelSeguridad::SECURITY: break; // Pongo esto solo para que no me salte un warning en la compilacion
+        case nivelSeguridad::TEST: etiqueta = "[TEST]"; break; // nivel de seguridad personalizado
+        case nivelSeguridad::SECURITY: break; // pongo esto solo para que no me salte un warning en la compilacion
     }
 
     archivo_log << etiqueta << " <" << msj << ">" << endl;
@@ -54,42 +55,47 @@ void logMensaje(string msj_de_acceso, string usuario){
     archivo_log.close();
 }
 
-void generarError() {
-    try {
-        throw runtime_error("Se ha producido un error en el sistema");
-    } catch (const exception &e) {
-        logMensaje(e.what(), __FILE__, __LINE__); 
-        cerr << "Error crítico detectado. Revise el log." << endl;
-        exit(1); 
-    }
+// Funcion para limpiar la entrada si el usuario ingresa algo invalido
+void limpiarBuffer() {
+    cin.clear(); // restablece el estado de cin en caso de error
+    string basura;
+    getline(cin, basura); // Consume la línea incorrecta para evitar loops infinitos
 }
 
-void ingresarMensajes(){
+
+int main() {
     int opcion, linea, agregar_detalles; 
     string msj, archivo, usuario;
 
     while (true){
-        cout << "Seleccione un nivel de seguridad (el numero):\n    1) DEBUG\n    2) INFO\n    3) WARNING\n    4) ERROR\n    5) CRITICAL\n    6) SECURITY\n    7) Simular error\n    8) Salir\n";
+        cout << "Seleccione un nivel de seguridad (el numero):\n    1) DEBUG\n    2) INFO\n    3) WARNING\n    4) ERROR\n    5) CRITICAL\n    6) TEST\n    7) SECURITY\n    8) Simular error\n    9) Salir\n";
         cout << "Opcion: ";
         cin >> opcion;
         cin.ignore();
+        // asumo que el usuario ingresa un int y no otra variable tipo string, char, etc
 
-
-        if (opcion == 8){
+        if (opcion == 9){
             cout << "Saliendo del programa." << endl; break;
         }
 
-        if (opcion == 7){
-            generarError();
+        if (opcion == 8){
+            try {
+                throw runtime_error("Se ha producido un error en el sistema");
+            } catch (const exception &e) {
+                logMensaje(e.what(), __FILE__, __LINE__); 
+                cerr << "Error crítico detectado. Revise el log." << endl;
+                return 1; 
+            }
         }
-
-        if (opcion < 1 || opcion > 6){
+        
+        if (opcion < 1 || opcion > 7){
             cout << "Nivel de seguridad inexistente. Ingrese nuevamente\n";
             continue;
         }
 
         if (opcion == 4){
-            cout << "¿Desea ingresar detalles del archivo y línea? (si = 0 | no = 1): ";
+            cout << "¿Desea ingresar detalles del archivo y línea? (si = 0 | no = 1): "; 
+            // asumo que el usuario ingresa 0 o 1 y no otro numero u otra variable
             cin >> agregar_detalles;
             cin.ignore();
 
@@ -113,7 +119,7 @@ void ingresarMensajes(){
                 logMensaje(msj, static_cast<nivelSeguridad>(opcion));
             }
 
-        } else if (opcion == 6){
+        } else if (opcion == 7){
             cout << "Ingrese su nombre de usuario: ";
             getline(cin, usuario);
 
@@ -129,10 +135,6 @@ void ingresarMensajes(){
             logMensaje(msj, static_cast<nivelSeguridad>(opcion));
         }
     }
-}
-
-int main() {
-    ingresarMensajes();
     cout << "Mensajes de log registrados en 'log.txt'" << endl;
 
     return 0;

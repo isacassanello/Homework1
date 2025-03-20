@@ -78,5 +78,5 @@ int main(){
 
 
 /*
-Elijo char* ya que string no es un tipo constxpr, lo que uso en el ejercicio c para analizar el tiempo de compilacion
+Elijo char* ya que string no es compatible con constxpr, lo que uso en el ejercicio c para analizar el tiempo de compilacion
 */

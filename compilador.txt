@@ -1,0 +1,36 @@
+LINK DEL GITHUB: 
+https://github.com/isacassanello/Homework1.git
+
+------------------------------------------------
+
+COMPILADOR EN EL EJERCICIO 1
+
+Paso 1 -> cd ejercicio1
+Paso 2 -> g++ main.cpp -o main
+Paso 3 -> ./main
+
+------------------------------------------------
+
+COMPILADOR EN EL EJERCICIO 2
+
+Paso 1 -> cd ejercicio2    
+Paso 2 -> g++ -std=c++11 main.cpp -o main 
+Paso 3 -> ./main
+
+------------------------------------------------
+
+COMPILADOR EN EL EJERCICIO 3
+
+Paso 1 -> cd ejercicio3 
+Paso 2 -> g++ -g -fsanitize=address -Wall -Wextra -pedantic -std=c++11 -o main main.cpp
+        (Valgrind no es compatible con macOS. Por eso, Homebrew no me permite instalarlo. Como alternativa, uso AddressSanitizer, que esta integrado en g++ en macOS)
+Paso 3 -> ./main
+
+------------------------------------------------
+
+COMPILADOR EN EL EJERCICIO 4
+
+Paso 1 -> cd ejercicio4
+Paso 2 -> g++ -std=c++17 -o main main.cpp
+Paso 3 -> ./main
+

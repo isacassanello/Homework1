@@ -1,6 +1,0 @@
-ej2) tengo que hacer un niuvel de seguridad personalizado, security cuenta?
-ej4) 
-i. en el print de tiempo de cpmopilacion em tira q text1 y text2 son distintos
-ii. tenfo q jacer funcion de comparar string de tipo string y otra de char* para justificar mi eleccionm?
-iii. justificaciones?
-iv, compilador esta bien?
